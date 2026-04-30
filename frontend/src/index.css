@@ -1,0 +1,186 @@
+/* ============================================================
+   RoomieLink — Global Stylesheet
+   Vibe: Playful, warm, student-friendly
+   Fonts: Nunito (headings) + DM Sans (body)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables (design tokens) ── */
+:root {
+  --coral:        #FF6B6B;
+  --coral-dark:   #e85555;
+  --coral-light:  #FFE8E8;
+  --violet:       #7C5CBF;
+  --violet-light: #EDE8F5;
+  --mint:         #4ECDC4;
+  --mint-light:   #E0FAF8;
+  --yellow:       #FFE66D;
+  --yellow-light: #FFFBE0;
+  --bg:           #FFF9F5;
+  --surface:      #FFFFFF;
+  --text-dark:    #1A1A2E;
+  --text-mid:     #4A4A6A;
+  --text-light:   #9090AA;
+  --border:       #EDE8F5;
+  --shadow-sm:    0 2px 8px rgba(124,92,191,0.08);
+  --shadow-md:    0 8px 24px rgba(124,92,191,0.12);
+  --shadow-lg:    0 16px 48px rgba(124,92,191,0.16);
+  --radius:       16px;
+  --radius-sm:    10px;
+  --radius-lg:    24px;
+}
+
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--violet); }
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── Custom component layer ── */
+@layer components {
+
+  /* Layout */
+  .container-custom {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--violet) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Pill / badge */
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.03em;
+  }
+  .badge-coral  { background: var(--coral-light);  color: var(--coral-dark); }
+  .badge-violet { background: var(--violet-light); color: var(--violet); }
+  .badge-mint   { background: var(--mint-light);   color: #2BA39E; }
+  .badge-yellow { background: var(--yellow-light); color: #8a7200; }
+
+  /* Glass card */
+  .glass-card {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Decorative blob backgrounds */
+  .blob-coral {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.18;
+    pointer-events: none;
+    background: var(--coral);
+  }
+  .blob-violet {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.18;
+    pointer-events: none;
+    background: var(--violet);
+  }
+  .blob-mint {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.15;
+    pointer-events: none;
+    background: var(--mint);
+  }
+
+  /* Fun dashed divider */
+  .divider-fun {
+    @apply my-6;
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--coral) 0px, var(--coral) 8px,
+      transparent 8px, transparent 16px,
+      var(--violet) 16px, var(--violet) 24px,
+      transparent 24px, transparent 32px
+    );
+    border-radius: 99px;
+    opacity: 0.4;
+  }
+}
+
+/* ── Utility animations ── */
+@layer utilities {
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  .animate-fade-up {
+    animation: fadeInUp 0.5s ease both;
+  }
+  .stagger-1 { animation-delay: 0.06s; }
+  .stagger-2 { animation-delay: 0.12s; }
+  .stagger-3 { animation-delay: 0.18s; }
+  .stagger-4 { animation-delay: 0.24s; }
+  .stagger-5 { animation-delay: 0.30s; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(90deg, #f0eaf8 25%, #e4d9f4 50%, #f0eaf8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}

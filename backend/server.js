@@ -17,15 +17,30 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
-  // Add production URL: "https://yourdomain.com"
+  "https://roomielink.vercel.app",     // ADD YOUR VERCEL FRONTEND URL
+  "https://roomielink.onrender.com",   // Your backend URL
+  // Add any other production URLs here
 ];
+
 app.use(cors({
-  origin: (origin, cb) =>
-    !origin || allowedOrigins.includes(origin)
-      ? cb(null, true)
-      : cb(new Error(`CORS: origin ${origin} not allowed`)),
+  origin: (origin, cb) => {
+    // Allow requests with no origin (like curl, Postman, mobile apps)
+    if (!origin) return cb(null, true);
+    
+    if (allowedOrigins.includes(origin)) {
+      return cb(null, true);
+    }
+    
+    console.log(`❌ Blocked CORS request from: ${origin}`);
+    cb(new Error(`CORS: origin ${origin} not allowed`));
+  },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
+// Handle preflight requests explicitly
+app.options('*', cors());
 
 /* ── Timeout (fixes slow loading) ────── */
 // Any request hanging > 15s is killed and returns 503

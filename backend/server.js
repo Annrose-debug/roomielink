@@ -17,11 +17,12 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
-  "https://roomielink.vercel.app",     // ADD YOUR VERCEL FRONTEND URL
-  "https://roomielink.onrender.com",   // Your backend URL
-  // Add any other production URLs here
+  "https://roomielink.vercel.app",
+  "https://roomielink.onrender.com",
 ];
 
+// REMOVE the problematic line - don't use app.options('*', cors())
+// Just use cors middleware normally
 app.use(cors({
   origin: (origin, cb) => {
     // Allow requests with no origin (like curl, Postman, mobile apps)
@@ -39,11 +40,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-// Handle preflight requests explicitly
-app.options('*', cors());
-
 /* ── Timeout (fixes slow loading) ────── */
-// Any request hanging > 15s is killed and returns 503
 app.use((req, res, next) => {
   res.setTimeout(15000, () => {
     console.error(`⏱ Timeout: ${req.method} ${req.path}`);
@@ -87,7 +84,6 @@ app.use("/api/contact",  apiLimiter,  contactRoutes);
 app.get("/", (_req, res) => res.send("RoomieLink API 🏠"));
 
 /* ── Global error handler ────────────── */
-// eslint-disable-next-line no-unused-vars
 app.use((err, _req, res, _next) => {
   console.error("Error:", err.message);
   if (err.code === "LIMIT_FILE_SIZE")         return res.status(413).json({ message: "File too large — max 5 MB" });

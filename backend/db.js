@@ -14,10 +14,10 @@ const pool = mysql.createPool({
   queueLimit: 0,
   enableKeepAlive: true,
   keepAliveInitialDelay: 0,
-  // Add SSL for remote databases (Aiven, FreeMySQLHosting)
-  ssl: process.env.DB_SSL === 'true' ? {
+  // Railway requires SSL - enable it
+  ssl: {
     rejectUnauthorized: false
-  } : null
+  }
 });
 
 // Promisify for async/await usage
@@ -34,7 +34,7 @@ const testConnection = async () => {
     return true;
   } catch (err) {
     console.error("❌ Database connection failed:", err.message);
-    console.error("Please check your .env file and make sure MySQL is running");
+    console.error("Full error:", err);
     return false;
   }
 };

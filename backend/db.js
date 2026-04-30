@@ -8,11 +8,16 @@ const pool = mysql.createPool({
   user: process.env.DB_USER || "root",
   password: process.env.DB_PASSWORD || "",
   database: process.env.DB_NAME || "roomielink",
+  port: process.env.DB_PORT || 3306,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
   enableKeepAlive: true,
-  keepAliveInitialDelay: 0
+  keepAliveInitialDelay: 0,
+  // Add SSL for remote databases (Aiven, FreeMySQLHosting)
+  ssl: process.env.DB_SSL === 'true' ? {
+    rejectUnauthorized: false
+  } : null
 });
 
 // Promisify for async/await usage
@@ -23,6 +28,8 @@ const testConnection = async () => {
   try {
     const connection = await promisePool.getConnection();
     console.log("✅ Connected to MySQL database");
+    console.log(`📊 Database: ${process.env.DB_NAME || "roomielink"}`);
+    console.log(`🌐 Host: ${process.env.DB_HOST || "localhost"}`);
     connection.release();
     return true;
   } catch (err) {

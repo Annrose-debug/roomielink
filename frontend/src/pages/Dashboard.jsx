@@ -86,7 +86,7 @@ const Dashboard = () => {
             <div>
               <p className="text-white/80 text-sm mb-1" style={{fontFamily:'Nunito,sans-serif'}}>{greeting},</p>
               <h1 className="text-3xl md:text-4xl font-black mb-2" style={{fontFamily:'Nunito,sans-serif'}}>
-                {user?.name ?? 'Student'} 🎓
+                {user?.name ?? 'Student'} 
               </h1>
               <p className="text-white/80">
                 Your roommate journey starts here. Let's find your perfect match!
@@ -127,7 +127,7 @@ const Dashboard = () => {
                 className="text-xl font-black text-violet-900 mb-5"
                 style={{fontFamily:'Nunito,sans-serif'}}
               >
-                📋 Recent Activity
+                Recent Activity
               </h2>
 
               {data?.recentActivity?.length ? (
@@ -153,7 +153,7 @@ const Dashboard = () => {
                 </div>
               ) : (
                 <div className="text-center py-12">
-                  <div className="text-5xl mb-3">🌱</div>
+                  <div className="text-5xl mb-3"></div>
                   <p className="text-violet-500 font-semibold" style={{fontFamily:'Nunito,sans-serif'}}>
                     No activity yet — complete your profile to start getting matches!
                   </p>
@@ -167,7 +167,7 @@ const Dashboard = () => {
             {/* Profile completion nudge */}
             <Card className="mt-4 border-2 border-dashed border-violet-200 bg-violet-50 animate-fade-up stagger-3">
               <div className="flex items-center gap-4">
-                <div className="text-4xl">💡</div>
+                <div className="text-4xl"></div>
                 <div className="flex-1">
                   <p className="font-black text-violet-800 text-sm" style={{fontFamily:'Nunito,sans-serif'}}>
                     Pro tip: Complete your profile to get 5× more matches!
@@ -175,7 +175,7 @@ const Dashboard = () => {
                   <p className="text-xs text-violet-500 mt-0.5">Add a photo, bio, and preferences to stand out.</p>
                 </div>
                 <Link to="/profile">
-                  <Button variant="violet" size="sm">Do it 🚀</Button>
+                  <Button variant="violet" size="sm">Do it </Button>
                 </Link>
               </div>
             </Card>
@@ -188,7 +188,7 @@ const Dashboard = () => {
                 className="text-xl font-black text-violet-900 mb-5"
                 style={{fontFamily:'Nunito,sans-serif'}}
               >
-                ⚡ Quick Actions
+                Quick Actions
               </h2>
               <div className="flex flex-col gap-3">
                 {actions.map(({ label, emoji, to, variant }) => (
@@ -200,7 +200,7 @@ const Dashboard = () => {
                 ))}
                 <div className="h-px bg-violet-100 my-1" />
                 <Button variant="ghost" size="md" fullWidth onClick={logout}>
-                  🚪 Log out
+                  Log out
                 </Button>
               </div>
             </Card>
@@ -210,7 +210,7 @@ const Dashboard = () => {
               className="mt-4 text-center animate-fade-up stagger-4"
               style={{ background: 'linear-gradient(135deg, #FFF9F5, #EDE8F5)' }}
             >
-              <div className="text-4xl mb-2">🎁</div>
+              <div className="text-4xl mb-2"></div>
               <h3 className="font-black text-violet-800 mb-1" style={{fontFamily:'Nunito,sans-serif'}}>
                 Invite a friend
               </h3>

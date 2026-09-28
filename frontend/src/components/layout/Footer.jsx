@@ -98,7 +98,7 @@ const Footer = () => {
             © {year} RoomieLink — Made with ❤️ for students everywhere
           </p>
           <p className="text-violet-500 text-xs">
-            No more bad roommate horror stories 🙏
+            No more bad roommate horror stories 
           </p>
         </div>
       </div>

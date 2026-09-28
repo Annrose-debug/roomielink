@@ -55,7 +55,7 @@ const CreateListing = () => {
     }
     
     const { data } = await listingAPI.create(fd);
-    toast.success("Listing posted! 🏠");
+    toast.success("Listing posted!");
     navigate("/listings");
   } catch (err) {
     console.error("Create listing error:", err);
@@ -83,40 +83,40 @@ const CreateListing = () => {
       <div className="container-custom py-8">
         <div className="max-w-2xl mx-auto">
           <div className="mb-6">
-            <h1 className="text-3xl font-black text-violet-900 mb-1" style={{fontFamily:"Nunito,sans-serif"}}>Post a Listing 🏠</h1>
+            <h1 className="text-3xl font-black text-violet-900 mb-1" style={{fontFamily:"Nunito,sans-serif"}}>Post a Listing</h1>
             <p className="text-violet-600">Help fellow students find great housing!</p>
           </div>
 
           <Card>
             <form onSubmit={handleSubmit} encType="multipart/form-data">
               {/* Basic info */}
-              <h2 className="text-lg font-black text-violet-800 mb-4" style={{fontFamily:"Nunito,sans-serif"}}>📋 Basic Info</h2>
+              <h2 className="text-lg font-black text-violet-800 mb-4" style={{fontFamily:"Nunito,sans-serif"}}>Basic Info</h2>
               <Input label="Title *" name="title" value={form.title} onChange={handleChange} placeholder="e.g. Cozy 2BR near campus" required />
               <div className="grid md:grid-cols-2 gap-3">
-                <Input label="📍 Location *" name="location" value={form.location} onChange={handleChange} placeholder="City or neighbourhood" required />
-                <Input label="🏠 Address" name="address" value={form.address} onChange={handleChange} placeholder="Street address (optional)" />
+                <Input label="Location *" name="location" value={form.location} onChange={handleChange} placeholder="City or neighbourhood" required />
+                <Input label="Address" name="address" value={form.address} onChange={handleChange} placeholder="Street address (optional)" />
               </div>
               <Textarea label="Description" name="description" value={form.description} onChange={handleChange} placeholder="Describe the place — size, nearby transport, vibe..." rows={4} />
 
               {/* Price & details */}
-              <h2 className="text-lg font-black text-violet-800 mb-4 mt-2" style={{fontFamily:"Nunito,sans-serif"}}>💰 Price & Details</h2>
+              <h2 className="text-lg font-black text-violet-800 mb-4 mt-2" style={{fontFamily:"Nunito,sans-serif"}}>Price & Details</h2>
               <div className="grid md:grid-cols-3 gap-3">
                 <Input label="Monthly Rent ($) *" name="price" type="number" value={form.price} onChange={handleChange} placeholder="900" required />
                 <Input label="🛏 Bedrooms" name="bedrooms" type="number" value={form.bedrooms} onChange={handleChange} min="1" max="10" />
-                <Input label="🚿 Bathrooms" name="bathrooms" type="number" value={form.bathrooms} onChange={handleChange} min="1" max="10" />
+                <Input label="Bathrooms" name="bathrooms" type="number" value={form.bathrooms} onChange={handleChange} min="1" max="10" />
               </div>
-              <Input label="📅 Available From" name="availableFrom" type="date" value={form.availableFrom} onChange={handleChange} />
+              <Input label="Available From" name="availableFrom" type="date" value={form.availableFrom} onChange={handleChange} />
 
               {/* Toggles */}
-              <h2 className="text-lg font-black text-violet-800 mb-4 mt-2" style={{fontFamily:"Nunito,sans-serif"}}>🏷️ Features</h2>
+              <h2 className="text-lg font-black text-violet-800 mb-4 mt-2" style={{fontFamily:"Nunito,sans-serif"}}>Features</h2>
               <div className="space-y-2 mb-6">
-                <Toggle name="furnished"   label="🛋 Furnished" />
-                <Toggle name="petsAllowed" label="🐾 Pets Allowed" />
-                <Toggle name="smokingOk"   label="🚬 Smoking OK" />
+                <Toggle name="furnished"   label="Furnished" />
+                <Toggle name="petsAllowed" label="Pets Allowed" />
+                <Toggle name="smokingOk"   label="Smoking OK" />
               </div>
 
               {/* Image upload */}
-              <h2 className="text-lg font-black text-violet-800 mb-3" style={{fontFamily:"Nunito,sans-serif"}}>📸 Photos (up to 5)</h2>
+              <h2 className="text-lg font-black text-violet-800 mb-3" style={{fontFamily:"Nunito,sans-serif"}}>Photos (up to 5)</h2>
               <label className="block border-2 border-dashed border-violet-300 rounded-2xl p-6 text-center cursor-pointer hover:border-coral-400 hover:bg-coral-50 transition-all mb-4">
                 <input type="file" name="images" multiple accept="image/*" onChange={handleImages} className="hidden" />
                 <div className="text-4xl mb-2">📷</div>
@@ -134,7 +134,7 @@ const CreateListing = () => {
               )}
 
               <div className="flex gap-3">
-                <Button type="submit" variant="primary" size="lg" loading={loading}>Post Listing 🚀</Button>
+                <Button type="submit" variant="primary" size="lg" loading={loading}>Post Listing</Button>
                 <Button type="button" variant="ghost" onClick={() => navigate("/listings")}>Cancel</Button>
               </div>
             </form>

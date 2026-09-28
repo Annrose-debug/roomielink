@@ -32,7 +32,7 @@ app.use(cors({
       return cb(null, true);
     }
     
-    console.log(`❌ Blocked CORS request from: ${origin}`);
+    console.log(`Blocked CORS request from: ${origin}`);
     cb(new Error(`CORS: origin ${origin} not allowed`));
   },
   credentials: true,
@@ -81,7 +81,7 @@ app.use("/api/messages", apiLimiter,  messageRoutes);
 app.use("/api/matches",  apiLimiter,  matchRoutes);
 app.use("/api/contact",  apiLimiter,  contactRoutes);
 
-app.get("/", (_req, res) => res.send("RoomieLink API 🏠"));
+app.get("/", (_req, res) => res.send("RoomieLink API"));
 
 /* ── Global error handler ────────────── */
 app.use((err, _req, res, _next) => {
@@ -93,4 +93,4 @@ app.use((err, _req, res, _next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

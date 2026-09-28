@@ -81,11 +81,11 @@ const PublicProfile = () => {
               <h1 className="text-2xl font-black text-violet-900 mb-2">{profile.name}</h1>
               
               {profile.location && (
-                <p className="text-violet-600 mb-1">📍 {profile.location}</p>
+                <p className="text-violet-600 mb-1"> {profile.location}</p>
               )}
               
               {profile.budget && (
-                <p className="text-violet-600 mb-4">💰 {profile.budget}/month</p>
+                <p className="text-violet-600 mb-4"> {profile.budget}/month</p>
               )}
               
               {profile.bio && (
@@ -96,7 +96,7 @@ const PublicProfile = () => {
               
               <div className="mt-6">
                 <Button variant="primary" onClick={handleMessage}>
-                  💬 Send Message
+                  Send Message
                 </Button>
               </div>
             </div>

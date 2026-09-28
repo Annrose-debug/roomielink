@@ -43,7 +43,7 @@ const Listings = () => {
         data.saved ? next.add(id) : next.delete(id);
         return next;
       });
-      toast.success(data.saved ? "Saved! 🏠" : "Removed from saved");
+      toast.success(data.saved ? "Saved!" : "Removed from saved");
     } catch { 
       toast.error("Could not save listing"); 
     }
@@ -72,9 +72,9 @@ const Listings = () => {
         {/* Filters */}
         <Card className="mb-6 bg-violet-50 border-0">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            <Input label="📍 Location" name="location" value={filters.location} onChange={filterChange} placeholder="City" />
-            <Input label="💰 Min $" name="minPrice" type="number" value={filters.minPrice} onChange={filterChange} placeholder="0" />
-            <Input label="💰 Max $" name="maxPrice" type="number" value={filters.maxPrice} onChange={filterChange} placeholder="5000" />
+            <Input label="Location" name="location" value={filters.location} onChange={filterChange} placeholder="City" />
+            <Input label="Min $" name="minPrice" type="number" value={filters.minPrice} onChange={filterChange} placeholder="0" />
+            <Input label="Max $" name="maxPrice" type="number" value={filters.maxPrice} onChange={filterChange} placeholder="5000" />
             <div className="mb-4">
               <label className="block text-xs font-bold text-violet-700 mb-1.5" style={{fontFamily:"Nunito,sans-serif"}}>🛏 Bedrooms</label>
               <select name="bedrooms" value={filters.bedrooms} onChange={filterChange} className="w-full rounded-xl border-2 border-violet-200 px-3 py-2.5 text-sm text-violet-800 focus:outline-none focus:border-coral-400">
@@ -108,7 +108,7 @@ const Listings = () => {
           </div>
         ) : listings.length === 0 ? (
           <div className="text-center py-20">
-            <div className="text-6xl mb-4">🏚️</div>
+            <div className="text-6xl mb-4"></div>
             <h2 className="text-xl font-black text-violet-700 mb-2" style={{fontFamily:"Nunito,sans-serif"}}>No listings found</h2>
             <p className="text-violet-500 mb-4">Try adjusting your filters, or be the first to post!</p>
             <Link to="/listings/new"><Button variant="primary">Post a Listing</Button></Link>
@@ -160,14 +160,14 @@ const Listings = () => {
 
                     <div className="p-4">
                       <h3 className="font-black text-violet-900 mb-1 truncate" style={{fontFamily:"Nunito,sans-serif"}}>{l.title}</h3>
-                      <p className="text-xs text-violet-500 mb-2">📍 {l.location}</p>
+                      <p className="text-xs text-violet-500 mb-2"> {l.location}</p>
 
                       {/* Chips */}
                       <div className="flex flex-wrap gap-1 mb-3">
-                        <span className="badge badge-violet">🛏 {l.bedrooms} bed{l.bedrooms !== 1 ? 's' : ''}</span>
-                        <span className="badge badge-mint">🚿 {l.bathrooms} bath{l.bathrooms !== 1 ? 's' : ''}</span>
-                        {l.furnished === 1 && <span className="badge badge-yellow">🛋 Furnished</span>}
-                        {l.petsAllowed === 1 && <span className="badge badge-coral">🐾 Pets OK</span>}
+                        <span className="badge badge-violet">{l.bedrooms} bed{l.bedrooms !== 1 ? 's' : ''}</span>
+                        <span className="badge badge-mint">{l.bathrooms} bath{l.bathrooms !== 1 ? 's' : ''}</span>
+                        {l.furnished === 1 && <span className="badge badge-yellow">Furnished</span>}
+                        {l.petsAllowed === 1 && <span className="badge badge-coral">Pets OK</span>}
                       </div>
 
                       {l.description && (
@@ -191,7 +191,7 @@ const Listings = () => {
                           <span className="text-xs text-violet-500">{l.ownerName}</span>
                         </div>
                         <Button variant="outline" size="sm" onClick={() => navigate(`/messages`)}>
-                          💬 Contact
+                          Contact
                         </Button>
                       </div>
                     </div>

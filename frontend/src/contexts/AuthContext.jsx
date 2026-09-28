@@ -91,7 +91,7 @@ export const AuthProvider = ({ children }) => {
         clearAuth();
         setToken(null);
         setUser(null);
-        toast.error("Session expired — please log in again 🔒");
+        toast.error("Session expired — please log in again");
       }
     }, 60_000);
     return () => clearInterval(interval);
@@ -104,7 +104,7 @@ export const AuthProvider = ({ children }) => {
       saveAuth(data.token, data.user, false); // don't remember by default on register
       setToken(data.token);
       setUser(data.user);
-      toast.success("Welcome to RoomieLink! 🎉");
+      toast.success("Welcome to RoomieLink!");
       return { success: true };
     } catch (err) {
       const msg = err.response?.data?.message || "Registration failed";
@@ -121,7 +121,7 @@ export const AuthProvider = ({ children }) => {
   try {
     const { data } = await authAPI.login(credentials);
     
-    // 🔥 CRITICAL FIX: Clear BOTH storages before saving new data
+    // CRITICAL FIX: Clear BOTH storages before saving new data
     localStorage.removeItem(TOKEN_KEY);
     localStorage.removeItem(USER_KEY);
     sessionStorage.removeItem(TOKEN_KEY);
@@ -134,7 +134,7 @@ export const AuthProvider = ({ children }) => {
     
     setToken(data.token);
     setUser(data.user);
-    toast.success("Welcome back! 👋");
+    toast.success("Welcome back!");
     return { success: true };
   } catch (err) {
     const msg = err.response?.data?.message || "Login failed";
@@ -153,7 +153,7 @@ export const AuthProvider = ({ children }) => {
   
   setToken(null);
   setUser(null);
-  toast.success("Logged out — see you soon! 👋");
+  toast.success("Logged out — see you soon!");
 };
 
   /* ── Update local user cache (e.g. after profile edit) ── */

@@ -27,13 +27,13 @@ const promisePool = pool.promise();
 const testConnection = async () => {
   try {
     const connection = await promisePool.getConnection();
-    console.log("✅ Connected to MySQL database");
-    console.log(`📊 Database: ${process.env.DB_NAME || "roomielink"}`);
-    console.log(`🌐 Host: ${process.env.DB_HOST || "localhost"}`);
+    console.log("Connected to MySQL database");
+    console.log(`Database: ${process.env.DB_NAME || "roomielink"}`);
+    console.log(`Host: ${process.env.DB_HOST || "localhost"}`);
     connection.release();
     return true;
   } catch (err) {
-    console.error("❌ Database connection failed:", err.message);
+    console.error("Database connection failed:", err.message);
     console.error("Full error:", err);
     return false;
   }

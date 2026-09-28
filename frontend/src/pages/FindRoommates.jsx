@@ -94,7 +94,7 @@ const FindRoommates = () => {
     try {
       const { data } = await matchAPI.like(userId);
       setLiked((p) => new Set([...p, userId]));
-      toast.success(data.message || "Like sent! 💕");
+      toast.success(data.message || "Like sent!");
     } catch (err) {
       console.error("Like error:", err);
       toast.error("Something went wrong");
@@ -145,8 +145,8 @@ const FindRoommates = () => {
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="font-black text-violet-900 truncate" style={{fontFamily:"Nunito,sans-serif"}}>{u.name}</h3>
-            {u.location && <p className="text-xs text-violet-500">📍 {u.location}</p>}
-            {u.budget   && <p className="text-xs text-violet-500">💰 {u.budget}</p>}
+            {u.location && <p className="text-xs text-violet-500"> {u.location}</p>}
+            {u.budget   && <p className="text-xs text-violet-500"> {u.budget}</p>}
           </div>
         </div>
 
@@ -228,9 +228,9 @@ const FindRoommates = () => {
         {tab === "browse" && (
           <Card className="mb-6 bg-violet-50 border-0">
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-              <Input label="📍 Location" name="location" value={filters.location} onChange={filterChange} placeholder="City / campus" />
+              <Input label="Location" name="location" value={filters.location} onChange={filterChange} placeholder="City / campus" />
               <div className="mb-4">
-                <label className="block text-xs font-bold text-violet-700 mb-1.5" style={{fontFamily:"Nunito,sans-serif"}}>😴 Sleep</label>
+                <label className="block text-xs font-bold text-violet-700 mb-1.5" style={{fontFamily:"Nunito,sans-serif"}}>Sleep</label>
                 <select name="sleepSchedule" value={filters.sleepSchedule} onChange={filterChange} className="w-full rounded-xl border-2 border-violet-200 px-3 py-2.5 text-sm text-violet-800 focus:outline-none focus:border-coral-400">
                   <option value="">Any</option>
                   <option value="early">Early bird</option>
@@ -272,7 +272,7 @@ const FindRoommates = () => {
         {/* Results */}
         {!hasUsers ? (
           <div className="text-center py-20">
-            <div className="text-6xl mb-4">😕</div>
+            <div className="text-6xl mb-4"></div>
             <h2 className="text-xl font-black text-violet-700 mb-2" style={{fontFamily:"Nunito,sans-serif"}}>No one found</h2>
             <p className="text-violet-500">
               {tab === "suggestions" ? "Complete your profile to get better suggestions!" : "Try adjusting your filters."}

@@ -63,7 +63,7 @@ const Landing = () => {
           <div className="text-center max-w-4xl mx-auto">
             {/* Pill badge */}
             <div className="inline-flex items-center gap-2 bg-coral-100 text-coral-600 px-4 py-2 rounded-full text-sm font-bold mb-6 animate-fade-up" style={{fontFamily:'Nunito,sans-serif'}}>
-              <span className="animate-wiggle inline-block">🎓</span>
+              <span className="animate-wiggle inline-block"></span>
               Built for students, by students
             </div>
 
@@ -80,7 +80,6 @@ const Landing = () => {
               }}>
                 Roomie
               </span>{' '}
-              🏠
             </h1>
 
             <p className="text-xl text-violet-700 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-up stagger-2">
@@ -91,7 +90,7 @@ const Landing = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up stagger-3">
               <Link to="/register">
                 <Button size="lg" variant="primary">
-                  Get started free 🚀
+                  Get started free
                 </Button>
               </Link>
               <Button size="lg" variant="outline-violet" onClick={() => scrollTo(featuresRef)}>
@@ -101,7 +100,7 @@ const Landing = () => {
 
             {/* Trust nudge */}
             <p className="mt-6 text-sm text-violet-400 animate-fade-up stagger-4">
-              🔒 Free to join · No credit card · 10,000+ students already matched
+              Free to join · No credit card · 10,000+ students already matched
             </p>
           </div>
 
@@ -150,7 +149,7 @@ const Landing = () => {
       <section ref={featuresRef} className="py-24 scroll-mt-16 bg-warm-50">
         <div className="container-custom">
           <div className="text-center mb-14">
-            <span className="badge badge-violet mb-3">✨ Features</span>
+            <span className="badge badge-violet mb-3">Features</span>
             <h2 className="text-4xl font-black text-violet-900 mb-4" style={{fontFamily:'Nunito,sans-serif'}}>
               Everything you need to find your match
             </h2>
@@ -177,7 +176,7 @@ const Landing = () => {
       <section className="py-24 bg-violet-50">
         <div className="container-custom">
           <div className="text-center mb-14">
-            <span className="badge badge-coral mb-3">🗺️ How it works</span>
+            <span className="badge badge-coral mb-3">How it works</span>
             <h2 className="text-4xl font-black text-violet-900 mb-4" style={{fontFamily:'Nunito,sans-serif'}}>
               From signup to move-in in 4 steps
             </h2>
@@ -254,7 +253,7 @@ const Landing = () => {
       <section ref={contactRef} className="py-24 scroll-mt-16 bg-violet-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <span className="badge badge-yellow mb-3">💌 Get in touch</span>
+            <span className="badge badge-yellow mb-3">Get in touch</span>
             <h2 className="text-4xl font-black text-violet-900 mb-4" style={{fontFamily:'Nunito,sans-serif'}}>
               Have questions? We've got answers.
             </h2>
@@ -286,7 +285,7 @@ const Landing = () => {
                   required
                 />
                 <Button type="submit" variant="primary" fullWidth size="lg">
-                  Send message 💌
+                  Send message
                 </Button>
               </form>
             </Card>
@@ -308,7 +307,7 @@ const Landing = () => {
             <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-white opacity-5 translate-y-1/2 -translate-x-1/2" />
 
             <div className="relative z-10">
-              <div className="text-5xl mb-4">🎉</div>
+              <div className="text-5xl mb-4"></div>
               <h2 className="text-3xl md:text-4xl font-black mb-4" style={{fontFamily:'Nunito,sans-serif'}}>
                 Ready to find your people?
               </h2>
@@ -317,7 +316,7 @@ const Landing = () => {
               </p>
               <Link to="/register">
                 <Button size="lg" variant="white">
-                  Create free account 🚀
+                  Create free account
                 </Button>
               </Link>
             </div>

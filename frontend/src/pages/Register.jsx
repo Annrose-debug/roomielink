@@ -62,7 +62,7 @@ const Register = () => {
         // Store token and user data
         localStorage.setItem('token', data.token);
         localStorage.setItem('user', JSON.stringify(data.user));
-        toast.success('Registration successful! 🎉');
+        toast.success('Registration successful!');
         navigate('/dashboard');
       } else {
         toast.error(data.message || 'Registration failed');
@@ -103,7 +103,7 @@ const Register = () => {
         <div className="max-w-md mx-auto">
 
           <div className="text-center mb-8 animate-fade-up">
-            <div className="text-5xl mb-3">🎉</div>
+            <div className="text-5xl mb-3"></div>
             <h1 className="text-3xl font-black text-violet-900 mb-2" style={{fontFamily:'Nunito,sans-serif'}}>
               Join RoomieLink!
             </h1>
@@ -185,7 +185,7 @@ const Register = () => {
               </p>
 
               <Button type="submit" variant="primary" size="lg" fullWidth loading={isLoading}>
-                Create my account 🚀
+                Create my account
               </Button>
             </form>
 

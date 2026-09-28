@@ -89,7 +89,7 @@ const Messages = () => {
 
       <div className="container-custom py-6 flex-1">
         <h1 className="text-2xl font-black text-violet-900 mb-4" style={{fontFamily:"Nunito,sans-serif"}}>
-          Messages 💬
+          Messages 
         </h1>
 
         <div className="grid md:grid-cols-3 gap-4 h-[calc(100vh-220px)]">
@@ -102,7 +102,7 @@ const Messages = () => {
               </div>
             ) : conversations.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full p-6 text-center">
-                <div className="text-5xl mb-3">💬</div>
+                <div className="text-5xl mb-3"></div>
                 <p className="text-violet-500 font-semibold text-sm" style={{fontFamily:"Nunito,sans-serif"}}>No conversations yet</p>
                 <p className="text-violet-400 text-xs mt-1">Match with a roomie to start chatting!</p>
                 <Button variant="primary" size="sm" className="mt-4" onClick={() => navigate("/find-roommates")}>
@@ -141,7 +141,7 @@ const Messages = () => {
           <div className="md:col-span-2 flex flex-col">
             {!activeUserId ? (
               <Card className="flex-1 flex flex-col items-center justify-center text-center">
-                <div className="text-6xl mb-4">👈</div>
+                <div className="text-6xl mb-4"></div>
                 <h2 className="text-xl font-black text-violet-700 mb-2" style={{fontFamily:"Nunito,sans-serif"}}>Select a conversation</h2>
                 <p className="text-violet-400 text-sm">Choose someone from the list to start chatting</p>
               </Card>
@@ -165,7 +165,7 @@ const Messages = () => {
                 <div className="flex-1 overflow-y-auto p-4 space-y-3">
                   {messages.length === 0 && (
                     <div className="text-center py-8 text-violet-400 text-sm">
-                      No messages yet — say hi! 👋
+                      No messages yet — say hi!
                     </div>
                   )}
                   {messages.map((m) => {
@@ -198,7 +198,7 @@ const Messages = () => {
                     disabled={sending}
                   />
                   <Button type="submit" variant="primary" size="sm" loading={sending} disabled={!draft.trim()}>
-                    Send 💬
+                    Send
                   </Button>
                 </form>
               </Card>

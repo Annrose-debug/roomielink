@@ -35,9 +35,9 @@ const Navbar = ({ onFeaturesClick, onAboutClick, onContactClick }) => {
   };
 
   const navLinks = [
-    { label: '✨ Features', cb: onFeaturesClick, path: '/#features' },
-    { label: '🎓 About',    cb: onAboutClick,    path: '/#about'    },
-    { label: '💌 Contact',  cb: onContactClick,  path: '/#contact'  },
+    { label: 'Features', cb: onFeaturesClick, path: '/#features' },
+    { label: 'About',    cb: onAboutClick,    path: '/#about'    },
+    { label: 'Contact',  cb: onContactClick,  path: '/#contact'  },
   ];
 
   return (
@@ -54,7 +54,7 @@ const Navbar = ({ onFeaturesClick, onAboutClick, onContactClick }) => {
 
           {/* ── Logo ── */}
           <Link to="/" className="flex items-center gap-1 group">
-            <span className="text-2xl">🏠</span>
+            <span className="text-2xl"></span>
             <span
               className="text-2xl font-black"
               style={{ fontFamily: 'Nunito, sans-serif' }}
@@ -98,7 +98,7 @@ const Navbar = ({ onFeaturesClick, onAboutClick, onContactClick }) => {
                   <Button variant="ghost" size="sm">Log in</Button>
                 </Link>
                 <Link to="/register">
-                  <Button variant="primary" size="sm">Sign up free 🎉</Button>
+                  <Button variant="primary" size="sm">Sign up free</Button>
                 </Link>
               </div>
             )}
@@ -145,7 +145,7 @@ const Navbar = ({ onFeaturesClick, onAboutClick, onContactClick }) => {
                   className="px-3 py-2.5 rounded-xl text-violet-700 font-bold hover:bg-violet-50 transition-colors"
                   style={{ fontFamily: 'Nunito, sans-serif' }}
                 >
-                  👤 My Profile
+                  My Profile
                 </Link>
                 <Link
                   to="/dashboard"
@@ -153,7 +153,7 @@ const Navbar = ({ onFeaturesClick, onAboutClick, onContactClick }) => {
                   className="px-3 py-2.5 rounded-xl text-violet-700 font-bold hover:bg-violet-50 transition-colors"
                   style={{ fontFamily: 'Nunito, sans-serif' }}
                 >
-                  📊 Dashboard
+                  Dashboard
                 </Link>
                 <Button variant="outline" size="sm" fullWidth onClick={handleLogout}>
                   Log out
